@@ -14,12 +14,66 @@ body {
     transform: translateX(-50%) translateY(-50%);
 }
 
-button {
-    height: 65px;
-    width: 65px;
+.frame {
+    height: 500px;
+    width: 400px;
+    background-color: slategray;
+    box-sizing: content-box;
+    border: darkslategrey;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.display {
+    height: 100px;
+    width: 100%;
+    background-color: rgb(77, 226, 47);
+    border: 2px solid darkslategrey;
+    text-align: end;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+.frame button {
+    height: 100%;
+    width: 25%;
     font-size: 25px;
 }
 
-.btn-row {
+.buttons {
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 75%;
+    gap: 3px;
+}
+
+.btn-row {
+    height: 20%;
+    display: flex;
+    gap: 3px;
+}
+
+.numpad {
+    border: 2px solid rgb(38, 214, 38);
+}
+
+.numpad:active {
+    border-color: red;
+}
+
+.result,
+.input {
+    margin: 0 8px 0 8px;
+}
+
+.result {
+    font-size: 20px;
+}
+
+.input {
+    font-size: 30px;
 }
