@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <script src="script.js" defer></script>
-    <title>Document ⌫</title>
+    <title>Calculator</title>
 </head>
 
 <body>
@@ -23,34 +23,34 @@
             </div>
             <div class="buttons">
                 <div class="btn-row">
-                    <button>AC</button>
-                    <button>C</button>
-                    <button>⌫</button>
-                    <button>&divide;</button>
+                    <button onclick="clearAll()">AC</button>
+                    <button onclick="clearInput()">C</button>
+                    <button onclick="backspace()">⌫</button>
+                    <button class="operator" value="/">&divide;</button>
                 </div>
                 <div class="btn-row">
                     <button value="7" class="numpad">7</button>
                     <button value="8" class="numpad">8</button>
                     <button value="9" class="numpad">9</button>
-                    <button>&times;</button>
+                    <button class="operator" value="x">&times;</button>
                 </div>
                 <div class="btn-row">
                     <button value="4" class="numpad">4</button>
                     <button value="5" class="numpad">5</button>
                     <button value="6" class="numpad">6</button>
-                    <button>&minus;</button>
+                    <button class="operator" value="-">&minus;</button>
                 </div>
                 <div class="btn-row">
                     <button value="1" class="numpad">1</button>
                     <button value="2" class="numpad">2</button>
                     <button value="3" class="numpad">3</button>
-                    <button>+</button>
+                    <button class="operator" value="+">&plus;</button>
                 </div>
                 <div class="btn-row">
-                    <button>&PlusMinus;</button>
+                    <button onclick="togglePlusMinus()">&PlusMinus;</button>
                     <button value="0" class="numpad">0</button>
-                    <button>.</button>
-                    <button>=</button>
+                    <button value="." class="numpad">.</button>
+                    <button class="operator" value="=">&equals;</button>
                 </div>
             </div>
         </div>

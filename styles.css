@@ -12,6 +12,7 @@ body {
     -moz-transform: translateX(-50%) translateY(-50%);
     -webkit-transform: translateX(-50%) translateY(-50%);
     transform: translateX(-50%) translateY(-50%);
+    border: 2px solid black;
 }
 
 .frame {
@@ -23,7 +24,7 @@ body {
     padding: 15px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 .display {
@@ -40,7 +41,9 @@ body {
 .frame button {
     height: 100%;
     width: 25%;
-    font-size: 25px;
+    font-size: 30px;
+    border-radius: 10px;
+    border: 2px solid rgb(38, 214, 38);
 }
 
 .buttons {
@@ -48,19 +51,16 @@ body {
     flex-direction: column;
     justify-content: center;
     height: 75%;
-    gap: 3px;
+    gap: 8px;
 }
 
 .btn-row {
     height: 20%;
     display: flex;
-    gap: 3px;
+    gap: 8px;
 }
 
-.numpad {
-    border: 2px solid rgb(38, 214, 38);
-}
-
+.frame button:active,
 .numpad:active {
     border-color: red;
 }
