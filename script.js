@@ -38,9 +38,7 @@ function operate(event) {
     let triggerOperator = event.target.value;
     console.log(input);
     console.log(parseFloat);
-    if ((!isNewNumbedAdded && result === "") || (triggerOperator === "=" && currentOperator === "")) {
-        //shouldOperate = true;
-        // nextOperator = triggerOperator;
+    if ((!isNewNumbedAdded && result === "") || (triggerOperator === "=" && currentOperator === "") || (!isNewNumbedAdded && triggerOperator ==="=")) {
         return;
     }
     else if(isNewNumbedAdded && result === ""){
@@ -50,7 +48,7 @@ function operate(event) {
         isNewNumbedAdded = false;
         return;
     }
-    else if (!isNewNumbedAdded) {
+    else if (!isNewNumbedAdded && triggerOperator != "=") {
         updateDisplayResult(triggerOperator);
         currentOperator = triggerOperator;
         return;
@@ -106,7 +104,8 @@ function clearInput() {
 function updateDisplayResult(operator) {
     if (operator === "undefined" || operator === "") {
         displayResult.textContent = result;
-        displayInput.textContent = result;
+        input = result.toString();
+        updateDisplayInput();
     }
     else {
         displayResult.textContent = `${result} ${operator}`;
@@ -148,13 +147,14 @@ function togglePlusMinus() {
     if (input.includes("-")) {
         input = input.substring(1, input.length);
     }
-    else if (input === "0") {
-        return;
+    else if (input === "0" || !isNewNumbedAdded) {
+        input = "-"
     }
     else {
         input = "-" + input;
     }
     updateDisplayInput();
+    isNewNumbedAdded = true;
 }
 
 function killCalculator(){

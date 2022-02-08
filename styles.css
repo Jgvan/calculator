@@ -12,7 +12,9 @@ body {
     -moz-transform: translateX(-50%) translateY(-50%);
     -webkit-transform: translateX(-50%) translateY(-50%);
     transform: translateX(-50%) translateY(-50%);
+    border-radius: 10px;
     border: 2px solid black;
+    background-color: rgb(202, 160, 105);
 }
 
 .frame {
@@ -25,6 +27,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    border-radius: 8px;
 }
 
 .display {
@@ -76,4 +79,11 @@ body {
 
 .input {
     font-size: 30px;
+}
+
+.unselectable {
+    -webkit-user-select: none; /* Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
 }
