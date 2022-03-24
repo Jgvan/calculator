@@ -2,7 +2,6 @@ let result = "";
 let input = "0";
 let currentOperator = "";
 let nextOperator = "";
-// let shouldOperate = false;
 let isNewNumbedAdded = false;
 
 
@@ -30,19 +29,17 @@ function multiply(a, b) {
 }
 
 function divide(a, b) {
-    if(b === 0) killCalculator();
+    if (b === 0) killCalculator();
     return a / b;
 }
 
 function operate(event) {
     let triggerOperator = event.target.value;
-    console.log(input);
-    console.log(parseFloat);
-    if ((!isNewNumbedAdded && result === "") || (triggerOperator === "=" && currentOperator === "") || (!isNewNumbedAdded && triggerOperator ==="=")) {
+    if ((!isNewNumbedAdded && result === "") || (triggerOperator === "=" && currentOperator === "")) {
         return;
     }
-    else if(isNewNumbedAdded && result === ""){
-        result = parseInt(input);
+    else if (isNewNumbedAdded && result === "") {
+        result = parseFloat(input);
         updateDisplayResult(triggerOperator);
         currentOperator = triggerOperator;
         isNewNumbedAdded = false;
@@ -124,12 +121,19 @@ function updateDisplayInput() {
 
 function numberInput(event) {
     let number = event.target.value;
+    if (currentOperator === "") {
+        result = "";
+        displayResult.textContent = "";
+    }
     if (input === "0" || !isNewNumbedAdded) {
         input = number;
         isNewNumbedAdded = true;
     }
     else if (number === "." && input.includes(".")) {
         return;
+    }
+    else if (number === "." && input === "-") {
+        input = "-0."
     }
     else {
         input += number;
@@ -144,6 +148,7 @@ function backspace() {
 }
 
 function togglePlusMinus() {
+    //If it was already negative, remove the -
     if (input.includes("-")) {
         input = input.substring(1, input.length);
     }
@@ -157,7 +162,7 @@ function togglePlusMinus() {
     isNewNumbedAdded = true;
 }
 
-function killCalculator(){
+function killCalculator() {
     const div = document.querySelector("body");
     div.innerHTML = "";
     div.setAttribute("style", "background: black; color: white; height: 100%; width: 100%; text-align: center; margin-top: 50vh; font-size: 20px;");
